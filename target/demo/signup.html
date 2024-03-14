@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>アカウント作成</title>
+	<script>
+		// 半角英数字以外を無効にする正規表現
+		var alphanumericPattern = /^[0-9a-zA-Z]+$/;
+		// 半角数字以外を無効にする正規表現
+		var numericPattern = /^[0-9]+$/;
+		// 全角の日本語のみを受け付ける正規表現
+		var japaneseTextPattern = /^[ぁ-んァ-ン一-龠]+$/;
+
+		function alphanumericInput(input) {
+		// 入力値が半角英数字のパターンに一致しない場合、入力をクリア
+			if (!alphanumericPattern.test(input.value)) {
+				alert("半角英数字のみ入力できます");
+				input.value = "";
+			}
+		}
+
+		function numericInput(input) {
+		// 入力値が半角数字のパターンに一致しない場合、入力をクリア
+			if (!numericPattern.test(input.value)) {
+				alert("半角数字のみ入力できます");
+				input.value = "";
+			}
+		}
+
+		function japaneseTextInput(input) {
+		// 入力値が全角の日本語のパターンに一致しない場合、入力をクリア
+			if (!japaneseTextPattern.test(input.value)) {
+				alert("全角の日本語のみ入力できます");
+				input.value = "";
+			}
+		}
+	</script>
+</head>
+<body>
+    <h2>アカウント作成</h2>
+	<FORM method="GET" action="Signup">
+		<h3>ユーザーID</h3>
+		<input type="text" name="USER" size="50" maxlength="30" oninput="alphanumericInput(this)" />
+
+		<h3>パスワード</h3>
+		<input type="text" name="PASSWORD" size="50" maxlength="64" oninput="alphanumericInput(this)" />
+
+		<h3>お名前</h3>
+		<input type="text" name="RESERVER_NAME" size="50" maxlength="20" oninput="japaneseTextInput(input)"/>
+
+		<h3>連絡先電話番号</h3>
+		<input type="text" name="TELL" size="50" maxlength="11" oninput="numericInput(this)"/>
+
+		<input type="submit" value="登録" />
+	</FORM>
+
+	<h3><a href="index.jsp">ログイン</a></h3>
+
+</body>
+</html>
