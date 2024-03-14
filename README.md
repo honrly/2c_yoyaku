@@ -8,6 +8,8 @@ mvn clean compile package install
 
 pom.xmlが環境設定
 
+targetが実際に動くファイル
+
 demo.warが更新されているか確認
 
 Community Serverにdemo.warをAdd
